@@ -16,7 +16,10 @@ export class AuthController {
   }
   signIn = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const token = await this.authService.signIn(req.body)
+      const { token, user } = await this.authService.signIn(req.body)
+      res.cookie(
+        'access_token', token, { httpOnly: true }
+      ).json(user)
 
     } catch (error) {
       next(error)
