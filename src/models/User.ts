@@ -7,6 +7,7 @@ export interface UserSchema {
   img?: string
   subscribers: number
   subscribedUsers: string[]
+  toResponse: any
 }
 
 const schema = new Schema<UserSchema>({
@@ -19,5 +20,10 @@ const schema = new Schema<UserSchema>({
 }, { timestamps: true })
 
 
+schema.virtual('toResponse').get(function () {
+  const { password, __v, ...user } = this.toObject() as any
+
+  return user
+})
 
 export const UserModel = mongoose.model('User', schema)

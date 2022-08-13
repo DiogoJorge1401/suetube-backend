@@ -51,7 +51,7 @@ export class AuthService {
 
     const token = sign({ id: userExists._id }, JWT_SECRET)
 
-    const { password, __v,...user } = userExists.toObject() as any
+    const user = userExists.toResponse
 
     return {
       token,
