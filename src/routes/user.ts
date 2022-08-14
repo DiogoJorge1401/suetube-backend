@@ -1,30 +1,34 @@
 import { Router } from 'express';
-import { UsersController } from '../controller/UsersController';
 import { verifyToken } from '../middlewares/verifyToken';
+import { deleteUserController } from '../useCases/user/DeleteUser';
+import { dislikeVideoController } from '../useCases/user/DislikeVideo';
+import { getUserController } from '../useCases/user/GetUser';
+import { likeVideoController } from '../useCases/user/LikeVideo';
+import { subscribeChannelController } from '../useCases/user/SubscribeChannel';
+import { unsubscribeChannelController } from '../useCases/user/UnsubscribeChannel';
+import { updateUserController } from '../useCases/user/UpdateUser';
 
 const userRouter = Router();
 
-const userController = new UsersController()
-
 // update user
-userRouter.put('/', verifyToken, userController.update)
+userRouter.put('/', verifyToken, updateUserController.handle)
 
 // delete user
-userRouter.delete('/', verifyToken, userController.delete)
+userRouter.delete('/', verifyToken, deleteUserController.handle)
 
 // get a user
-userRouter.get('/', verifyToken, userController.getUser)
+userRouter.get('/:id', getUserController.handle)
 
 // subscribe a user
-userRouter.post('/subscribe/:channelId', verifyToken, userController.subscribe)
+userRouter.post('/subscribe/:channelId', verifyToken, subscribeChannelController.handle)
 
 // unsubscribe a user
-userRouter.post('/unsubscribe/:channelId', verifyToken, userController.unsubscribe)
+userRouter.post('/unsubscribe/:channelId', verifyToken, unsubscribeChannelController.handle)
 
 // like a video
-userRouter.post('/like/:videoId', verifyToken, userController.like)
+userRouter.post('/like/:videoId', verifyToken, likeVideoController.handle)
 
 // dislike a video
-userRouter.post('/dislike/:videoId', verifyToken, userController.dislike)
+userRouter.post('/dislike/:videoId', verifyToken, dislikeVideoController.handle)
 
 export { userRouter };

@@ -1,17 +1,17 @@
 import { Router } from 'express';
-import { AuthController } from '../controller/AuthController';
+import { googleController } from '../useCases/auth/Google';
+import { signInController } from '../useCases/auth/SignIn';
+import { signUpController } from '../useCases/auth/SignUp';
 
 const authRouter = Router();
 
-const authController = new AuthController()
-
 // CREATE A USER
-authRouter.post('/signup', authController.signUp)
+authRouter.post('/signup', signUpController.handle)
 
 // SIGN IN
-authRouter.post('/signin', authController.signIn)
+authRouter.post('/signin', signInController.handle)
 
 // GOOGLE AUTH
-authRouter.post('/google', authController.google)
+authRouter.post('/google', googleController.handle)
 
 export { authRouter };

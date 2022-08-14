@@ -2,7 +2,7 @@ import cors from 'cors';
 import cookie from 'cookie-parser';
 import 'dotenv/config';
 import e from 'express';
-import './database/connection';
+import './db/connection';
 import { routes } from './routes/routes';
 
 const app = e()
