@@ -1,23 +1,18 @@
-import { IVideoRepository } from '@/repository/video/IVideoRepository';
-import { IUserRepository } from '@/repository/user/IUserRepository';
+import { IVideoRepository } from '@/repositories/video/IVideoRepository';
+import { IUserRepository } from '@/repositories/user/IUserRepository';
 
 export class SubsVideoUseCase {
-  constructor(
-    private videoRepository: IVideoRepository,
-    private userRepository: IUserRepository,
-  ) { }
+  constructor(private videoRepository: IVideoRepository, private userRepository: IUserRepository) {}
 
   async execute(userId: string) {
-    const user = await this.userRepository.findUserById(userId, 'Invalid User Id')
+    const user = await this.userRepository.findById(userId);
 
     const videos = (
-      await Promise.all(
-        user.subscribedUsers.map(channel => this.videoRepository.findMany({ userId: channel }))
-      ))
+      await Promise.all(user.subscribedUsers.map((channel) => this.videoRepository.findMany({ userId: channel }, {})))
+    )
       .flat()
-      .sort((a, b) => b.createdAt - a.createdAt)
+      .sort((a, b) => b.createdAt - a.createdAt);
 
-    return videos
-
+    return videos;
   }
 }

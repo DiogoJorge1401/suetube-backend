@@ -1,24 +1,19 @@
-import { hash } from 'bcrypt'
-import { HTTPError } from '@/errors/HTTPError'
-import { IUserRepository } from '@/repository/user/IUserRepository'
+import { hash } from 'bcrypt';
+import { HTTPError } from '@/errors/HTTPError';
+import { CreateUserDTO, IUserRepository } from '@/repositories/user/IUserRepository';
 
-export class SignUpUseCase{
-  constructor(private usersRepository: IUserRepository) { }
+export class SignUpUseCase {
+  constructor(private usersRepository: IUserRepository) {}
 
-  async execute(data: any) {
-    if (
-      !data?.email ||
-      !data?.password ||
-      !data?.username
-    )
-      throw new HTTPError('Missing fields!', 400)
+  async execute(data: CreateUserDTO) {
+    if (!data?.email || !data?.password || !data?.username) throw new HTTPError('Missing Fields!', 400);
 
-    const hashedPassword = await hash(data.password, 12)
+    const hashedPassword = await hash(data.password, 12);
 
     await this.usersRepository.save({
       email: data.email,
       username: data.username,
-      password: hashedPassword
-    })
+      password: hashedPassword,
+    });
   }
 }

@@ -6,12 +6,12 @@ import { signUpController } from '../useCases/auth/SignUp';
 const authRouter = Router();
 
 // CREATE A USER
-authRouter.post('/signup', signUpController.handle)
+authRouter.post('/signup', signUpController.handle);
 
 // SIGN IN
-authRouter.post('/signin', signInController.handle)
+authRouter.post('/signin', signInController.handle);
 
 // GOOGLE AUTH
-authRouter.post('/google', googleController.handle)
+authRouter.post('/google', googleController.handle);
 
 export { authRouter };

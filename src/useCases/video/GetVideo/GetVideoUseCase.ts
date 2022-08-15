@@ -1,12 +1,10 @@
-import { IVideoRepository } from '@/repository/video/IVideoRepository';
+import { IVideoRepository } from '@/repositories/video/IVideoRepository';
 
 export class GetVideoUseCase {
-  constructor(
-    private videoRepository: IVideoRepository,
-  ) { }
+  constructor(private videoRepository: IVideoRepository) {}
 
   async execute(videoId: string) {
-    const video = await this.videoRepository.findVideoById(videoId, 'Invalid Video ID')
-    return video
+    const video = await this.videoRepository.findById(videoId);
+    return video;
   }
 }

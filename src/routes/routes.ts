@@ -6,16 +6,9 @@ import { videoRouter } from './video';
 
 const routes = Router();
 
-routes
-  .use("/auth", authRouter)
-  .use('/users', userRouter)
-  .use('/videos', videoRouter)
-  .use('/comments', commentRouter)
-
-routes.use((err, req, res, next) => {
-  return res
-    .status(err?.statusCode || 500)
-    .json({ message: err.message, ...err })
-})
+routes.use('/auth', authRouter);
+routes.use('/users', userRouter);
+routes.use('/videos', videoRouter);
+routes.use('/comments', commentRouter);
 
 export { routes };

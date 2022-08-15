@@ -1,13 +1,11 @@
-import { IVideoRepository } from '@/repository/video/IVideoRepository';
+import { IVideoRepository } from '@/repositories/video/IVideoRepository';
 
 export class AddViewVideoUseCase {
-  constructor(
-    private videoRepository: IVideoRepository
-  ) { }
+  constructor(private videoRepository: IVideoRepository) {}
 
   async execute(videoId: string) {
-    const video = await this.videoRepository.findVideoById(videoId, 'Invalid Video Id')
+    await this.videoRepository.findById(videoId);
 
-    return await this.videoRepository.updateOne({ _id: videoId }, { $inc: { videoViews: 1 } })
+    return await this.videoRepository.updateOne({ _id: videoId }, { $inc: { videoViews: 1 } });
   }
 }

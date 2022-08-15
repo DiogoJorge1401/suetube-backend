@@ -1,11 +1,9 @@
-import { IVideoRepository } from '@/repository/video/IVideoRepository';
+import { IVideoRepository } from '@/repositories/video/IVideoRepository';
 
 export class TrendVideoUseCase {
-  constructor(
-    private videoRepository: IVideoRepository,
-  ) { }
+  constructor(private videoRepository: IVideoRepository) {}
 
   async execute() {
-    return this.videoRepository.findAndSort({ videoViews: -1 }, {})
+    return this.videoRepository.findMany({}, { videoViews: -1 });
   }
 }

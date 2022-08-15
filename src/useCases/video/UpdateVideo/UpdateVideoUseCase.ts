@@ -1,20 +1,20 @@
 import { HTTPError } from '@/errors/HTTPError';
-import { IUserRepository } from '@/repository/user/IUserRepository';
-import { IVideoRepository } from '@/repository/video/IVideoRepository';
+import { CreateVideoDTO, IVideoRepository } from '@/repositories/video/IVideoRepository';
+
+interface UpdateVideoProps {
+  videoId: string;
+  userId: string;
+  videoData: Partial<CreateVideoDTO>;
+}
 
 export class UpdateVideoUseCase {
-  constructor(
-    private videoRepository: IVideoRepository,
-    private userRepository: IUserRepository,
-  ) { }
+  constructor(private videoRepository: IVideoRepository) {}
 
-  async execute(videoId: string, userId: string, videoData: any) {
-    const video = await this.videoRepository.findVideoById(videoId, 'Invalid Video Id')
-    const user = await this.userRepository.findUserById(userId, 'Invalid User Id!')
+  async execute({ userId, videoData, videoId }: UpdateVideoProps) {
+    const video = await this.videoRepository.findById(videoId);
 
-    if (String(video.userId) !== userId)
-      throw new HTTPError('Invalid User Id!')
+    if (String(video.userId) !== userId) throw new HTTPError('Invalid User Id!');
 
-    return await this.videoRepository.updateOne({ _id: videoId }, { $set: videoData })
+    return await this.videoRepository.updateOne({ _id: videoId }, { $set: videoData });
   }
 }

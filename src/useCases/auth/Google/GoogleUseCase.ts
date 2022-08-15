@@ -1,5 +1,3 @@
-export class GoogleUseCase{
-  async execute(){
-    
-  }
+export class GoogleUseCase {
+  async execute() {}
 }

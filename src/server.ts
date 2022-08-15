@@ -4,14 +4,16 @@ import 'dotenv/config';
 import e from 'express';
 import './db/connection';
 import { routes } from './routes/routes';
+import { handleErrors } from './middlewares/handleErrors';
 
-const app = e()
+const app = e();
 
-app.use(e.json())
-app.use(cookie())
-app.use(cors())
-app.use('/api', routes)
+app.use(e.json());
+app.use(cookie());
+app.use(cors());
+app.use('/api', routes);
+routes.use(handleErrors);
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT;
 
-app.listen(PORT, () => console.log("The Server Is On!"))
+app.listen(PORT, () => console.log('The Server Is On!'));
