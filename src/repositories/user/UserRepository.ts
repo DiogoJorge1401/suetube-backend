@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { HTTPError } from '@/errors/HTTPError';
-import { User, UserDocument, UserModel } from '@/models/User';
+import { HTTPError } from '@errors/HTTPError';
+import { User, UserDocument, UserModel } from '@models/User';
 import { FilterQuery, PipelineStage, UpdateQuery } from 'mongoose';
 import { SortParams } from '../Repository';
 import { CreateUserDTO, IUserRepository } from './IUserRepository';

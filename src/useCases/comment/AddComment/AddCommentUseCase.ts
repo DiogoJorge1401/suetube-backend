@@ -1,5 +1,5 @@
-import { CreateCommentDTO, ICommentRepository } from '@/repositories/comment/ICommentRepository';
-import { HTTPError } from '@/errors/HTTPError';
+import { CreateCommentDTO, ICommentRepository } from '@repositories/comment/ICommentRepository';
+import { HTTPError } from '@errors/HTTPError';
 
 export class AddCommentUseCase {
   constructor(private commentRepository: ICommentRepository) {}

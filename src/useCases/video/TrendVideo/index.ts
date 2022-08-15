@@ -1,4 +1,4 @@
-import { VideoRepository } from '@/repositories/video/VideoRepository';
+import { VideoRepository } from '@repositories/video/VideoRepository';
 import { TrendVideoController } from './TrendVideoController';
 import { TrendVideoUseCase } from './TrendVideoUseCase';
 

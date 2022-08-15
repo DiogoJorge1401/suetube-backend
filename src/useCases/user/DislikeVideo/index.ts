@@ -1,4 +1,4 @@
-import { VideoRepository } from '@/repositories/video/VideoRepository';
+import { VideoRepository } from '@repositories/video/VideoRepository';
 import { DislikeVideoController } from './DislikeVideoController';
 import { DislikeVideoUseCase } from './DislikeVideoUseCase';
 

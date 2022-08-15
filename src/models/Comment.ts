@@ -7,6 +7,7 @@ export interface Comment {
   description: string;
 }
 export interface CommentDocument extends Comment {
+  _id: string;
   createdAt: number;
   updatedAt: number;
   userId: Schema.Types.ObjectId;
@@ -22,4 +23,4 @@ const schema = new Schema(
   { timestamps: true },
 );
 
-export const CommentModel = mongoose.model('Comment', schema);
+export const CommentModel = mongoose.model<CommentDocument>('Comment', schema);

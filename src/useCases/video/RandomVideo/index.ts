@@ -1,4 +1,4 @@
-import { VideoRepository } from '@/repositories/video/VideoRepository';
+import { VideoRepository } from '@repositories/video/VideoRepository';
 import { RandomVideoController } from './RandomVideoController';
 import { RandomVideoUseCase } from './RandomVideoUseCase';
 

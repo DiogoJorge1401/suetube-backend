@@ -1,4 +1,4 @@
-import { CommentRepository } from '@/repositories/comment/CommentRepository';
+import { CommentRepository } from '@repositories/comment/CommentRepository';
 import { GetCommentsController } from './GetCommentsController';
 import { GetCommentsUseCase } from './GetCommentsUseCase';
 

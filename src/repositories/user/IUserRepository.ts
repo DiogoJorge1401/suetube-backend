@@ -1,4 +1,4 @@
-import { User, UserDocument } from '@/models/User';
+import { User, UserDocument } from '@models/User';
 import { IRepository } from '../Repository';
 
 export type CreateUserDTO = Pick<User, 'email' | 'password' | 'username'>;

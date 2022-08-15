@@ -29,9 +29,10 @@
       "./src/@types"
     ],
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "*": ["node_modules/*"],
+      "@repositories/*": ["repositories/*"],
+      "@errors/*": ["errors/*"],
+      "@models/*": ["models/*"]
     }
   }
 }

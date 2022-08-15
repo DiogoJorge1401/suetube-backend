@@ -1,5 +1,5 @@
-import { ICommentRepository } from '@/repositories/comment/ICommentRepository';
-import { HTTPError } from '@/errors/HTTPError';
+import { ICommentRepository } from '@repositories/comment/ICommentRepository';
+import { HTTPError } from '@errors/HTTPError';
 
 export class DeleteCommentUseCase {
   constructor(private commentRepository: ICommentRepository) {}

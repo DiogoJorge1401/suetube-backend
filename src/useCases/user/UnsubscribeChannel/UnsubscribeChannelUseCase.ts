@@ -1,5 +1,5 @@
-import { HTTPError } from '@/errors/HTTPError';
-import { IUserRepository } from '@/repositories/user/IUserRepository';
+import { HTTPError } from '@errors/HTTPError';
+import { IUserRepository } from '@repositories/user/IUserRepository';
 
 export class UnsubscribeChannelUseCase {
   constructor(private usersRepository: IUserRepository) {}

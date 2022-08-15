@@ -1,4 +1,4 @@
-import { ICommentRepository } from '@/repositories/comment/ICommentRepository';
+import { ICommentRepository } from '@repositories/comment/ICommentRepository';
 
 export class GetCommentsUseCase {
   constructor(private commentRepository: ICommentRepository) {}

@@ -1,5 +1,5 @@
-import { HTTPError } from '@/errors/HTTPError';
-import { Video, VideoDocument, VideoModel } from '@/models/Video';
+import { HTTPError } from '@errors/HTTPError';
+import { Video, VideoDocument, VideoModel } from '@models/Video';
 import { FilterQuery, PipelineStage, UpdateQuery } from 'mongoose';
 import { SortParams } from '../Repository';
 import { CreateVideoDTO, IVideoRepository } from './IVideoRepository';

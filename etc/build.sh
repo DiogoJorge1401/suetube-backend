@@ -1,5 +1,5 @@
 rimraf dist
 
-tsc -p ./tsconfig.json --pretty
+tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./ -o ./dist
 
 cp package.json dist/

@@ -1,5 +1,5 @@
-import { HTTPError } from '@/errors/HTTPError';
-import { CreateVideoDTO, IVideoRepository } from '@/repositories/video/IVideoRepository';
+import { HTTPError } from '@errors/HTTPError';
+import { CreateVideoDTO, IVideoRepository } from '@repositories/video/IVideoRepository';
 
 interface UpdateVideoProps {
   videoId: string;

@@ -1,4 +1,4 @@
-import { CreateUserDTO, IUserRepository } from '@/repositories/user/IUserRepository';
+import { CreateUserDTO, IUserRepository } from '@repositories/user/IUserRepository';
 
 export class UpdateUserUseCase {
   constructor(private usersRepository: IUserRepository) {}

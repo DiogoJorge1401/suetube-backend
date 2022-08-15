@@ -1,4 +1,4 @@
-import { VideoRepository } from '@/repositories/video/VideoRepository';
+import { VideoRepository } from '@repositories/video/VideoRepository';
 import { UpdateVideoController } from './UpdateVideoController';
 import { UpdateVideoUseCase } from './UpdateVideoUseCase';
 

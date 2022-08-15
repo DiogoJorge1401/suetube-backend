@@ -1,4 +1,4 @@
-import { UserRepository } from '@/repositories/user/UserRepository';
+import { UserRepository } from '@repositories/user/UserRepository';
 import { UnsubscribeChannelController } from './UnsubscribeChannelController';
 import { UnsubscribeChannelUseCase } from './UnsubscribeChannelUseCase';
 

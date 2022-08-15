@@ -1,6 +1,6 @@
 import { sign } from 'jsonwebtoken';
-import { HTTPError } from '@/errors/HTTPError';
-import { IUserRepository } from '@/repositories/user/IUserRepository';
+import { HTTPError } from '@errors/HTTPError';
+import { IUserRepository } from '@repositories/user/IUserRepository';
 
 interface SignInProps {
   password: string;

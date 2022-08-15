@@ -1,4 +1,4 @@
-import { UserRepository } from '@/repositories/user/UserRepository';
+import { UserRepository } from '@repositories/user/UserRepository';
 import { UpdateUserController } from './UpdateUserController';
 import { UpdateUserUseCase } from './UpdateUserUseCase';
 

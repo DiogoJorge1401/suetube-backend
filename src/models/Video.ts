@@ -14,7 +14,7 @@ export interface Video {
 }
 
 export interface VideoDocument extends Video {
-  id: string;
+  _id: string;
   createdAt: number;
   updatedAt: number;
 }

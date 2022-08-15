@@ -1,5 +1,5 @@
-import { HTTPError } from '@/errors/HTTPError';
-import { Comment, CommentDocument, CommentModel } from '@/models/Comment';
+import { HTTPError } from '@errors/HTTPError';
+import { Comment, CommentDocument, CommentModel } from '@models/Comment';
 import { FilterQuery, PipelineStage, UpdateQuery } from 'mongoose';
 import { SortParams } from '../Repository';
 import { CreateCommentDTO, ICommentRepository } from './ICommentRepository';

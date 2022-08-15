@@ -1,5 +1,5 @@
-import { HTTPError } from '@/errors/HTTPError';
-import { IVideoRepository } from '@/repositories/video/IVideoRepository';
+import { HTTPError } from '@errors/HTTPError';
+import { IVideoRepository } from '@repositories/video/IVideoRepository';
 
 export class DeleteVideoUseCase {
   constructor(private videoRepository: IVideoRepository) {}

@@ -1,4 +1,4 @@
-import { Comment, CommentDocument } from '@/models/Comment';
+import { Comment, CommentDocument } from '@models/Comment';
 import { IRepository } from '../Repository';
 
 export type CreateCommentDTO = Pick<Comment, 'userId' | 'videoId' | 'description'>;

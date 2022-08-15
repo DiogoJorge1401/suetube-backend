@@ -1,5 +1,5 @@
-import { VideoRepository } from '@/repositories/video/VideoRepository';
-import { UserRepository } from '@/repositories/user/UserRepository';
+import { VideoRepository } from '@repositories/video/VideoRepository';
+import { UserRepository } from '@repositories/user/UserRepository';
 import { SubsVideoController } from './SubsVideoController';
 import { SubsVideoUseCase } from './SubsVideoUseCase';
 

@@ -14,7 +14,7 @@ export interface User {
 }
 
 export interface UserDocument extends User {
-  id: string;
+  _id: string;
   createdAt: number;
   updatedAt: number;
   toResponse(): User;
@@ -46,4 +46,4 @@ schema.methods.compare = async function (candidate: string) {
   return true;
 };
 
-export const UserModel = mongoose.model('User', schema);
+export const UserModel = mongoose.model<UserDocument>('User', schema);

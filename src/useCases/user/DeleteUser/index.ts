@@ -1,6 +1,6 @@
-import { UserRepository } from '@/repositories/user/UserRepository';
-import { VideoRepository } from '@/repositories/video/VideoRepository';
-import { CommentRepository } from '@/repositories/comment/CommentRepository';
+import { UserRepository } from '@repositories/user/UserRepository';
+import { VideoRepository } from '@repositories/video/VideoRepository';
+import { CommentRepository } from '@repositories/comment/CommentRepository';
 import { DeleteUserController } from './DeleteUserController';
 import { DeleteUserUseCase } from './DeleteUserUseCase';
 

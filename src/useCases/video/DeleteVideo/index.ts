@@ -1,4 +1,4 @@
-import { VideoRepository } from '@/repositories/video/VideoRepository';
+import { VideoRepository } from '@repositories/video/VideoRepository';
 import { DeleteVideoController } from './DeleteVideoController';
 import { DeleteVideoUseCase } from './DeleteVideoUseCase';
 

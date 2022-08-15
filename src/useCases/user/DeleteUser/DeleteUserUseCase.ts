@@ -1,6 +1,6 @@
-import { IVideoRepository } from '@/repositories/video/IVideoRepository';
-import { IUserRepository } from '@/repositories/user/IUserRepository';
-import { ICommentRepository } from '@/repositories/comment/ICommentRepository';
+import { IVideoRepository } from '@repositories/video/IVideoRepository';
+import { IUserRepository } from '@repositories/user/IUserRepository';
+import { ICommentRepository } from '@repositories/comment/ICommentRepository';
 
 export class DeleteUserUseCase {
   constructor(

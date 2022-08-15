@@ -1,4 +1,4 @@
-import { IVideoRepository } from '@/repositories/video/IVideoRepository';
+import { IVideoRepository } from '@repositories/video/IVideoRepository';
 
 export class DislikeVideoUseCase {
   constructor(private videosRepository: IVideoRepository) {}
