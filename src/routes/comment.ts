@@ -7,17 +7,9 @@ import { updateCommentController } from '../useCases/comment/UpdateComment';
 
 const commentRouter = Router();
 
-commentRouter.post(
-  '/', verifyToken, addCommentController.handle
-);
-commentRouter.put(
-  '/:id', verifyToken, updateCommentController.handle
-);
-commentRouter.delete(
-  '/:id', verifyToken, deleteCommentController.handle
-);
-commentRouter.get(
-  '/:videoId', verifyToken, getCommentsController.handle
-);
+commentRouter.post('/', verifyToken, addCommentController.handle);
+commentRouter.put('/:id', verifyToken, updateCommentController.handle);
+commentRouter.delete('/:id', verifyToken, deleteCommentController.handle);
+commentRouter.get('/:videoId', verifyToken, getCommentsController.handle);
 
 export { commentRouter };

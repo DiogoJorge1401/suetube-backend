@@ -7,7 +7,7 @@ export class DislikeVideoController {
   handle = async (req: Request, res: Response, next: NextFunction) => {
     try {
       await this.dislikeVideoUseCase.execute(req.userId, req.params.videoId);
-      res.send();
+      res.json('The video has been disliked.');
     } catch (error) {
       next(error);
     }

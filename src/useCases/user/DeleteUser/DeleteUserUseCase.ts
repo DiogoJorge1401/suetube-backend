@@ -22,6 +22,11 @@ export class DeleteUserUseCase {
 
     await this.videoRepository.removeMany({ userId });
 
+    await this.videoRepository.updateMany(
+      { $or: [{ likes: userId }, { dislikes: userId }] },
+      { $pull: { likes: userId, dislikes: userId } },
+    );
+
     await this.commentRepository.removeMany({ userId });
 
     await this.userRepository.removeOne({ _id: userId });

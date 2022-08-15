@@ -7,7 +7,7 @@ export class LikeVideoController {
   handle = async (req: Request, res: Response, next: NextFunction) => {
     try {
       await this.likeVideoUseCase.execute(req.userId, req.params.videoId);
-      res.send();
+      res.json('The video has been liked.');
     } catch (error) {
       next(error);
     }

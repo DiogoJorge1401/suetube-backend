@@ -6,6 +6,12 @@ export class DislikeVideoUseCase {
   async execute(userId: string, videoId: string) {
     await this.videosRepository.findById(videoId);
 
-    await this.videosRepository.updateOne({ _id: videoId }, { $push: { dislikes: userId } });
+    await this.videosRepository.updateOne(
+      { _id: videoId },
+      {
+        $addToSet: { dislikes: userId },
+        $pull: { likes: userId },
+      },
+    );
   }
 }
