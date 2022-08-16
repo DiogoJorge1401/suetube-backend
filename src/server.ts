@@ -10,7 +10,7 @@ const app = e();
 
 app.use(e.json());
 app.use(cookie());
-app.use(cors());
+app.use(cors({ origin: true, credentials: true }));
 app.use('/api', routes);
 routes.use(handleErrors);
 
