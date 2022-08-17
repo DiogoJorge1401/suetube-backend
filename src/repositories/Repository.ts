@@ -13,7 +13,7 @@ export type SortParams = {
 export interface IRepository<Model, Document, DTO> {
   save(data: DTO): Promise<Document>;
   findById(id: string): Promise<Document>;
-  findOne(query: FilterQuery<Model>, errorMsg: string): Promise<Document>;
+  findOne(query: FilterQuery<Model>, errorMsg: string | null): Promise<Document>;
   findMany(query: FilterQuery<Model>, sort: SortParams): Promise<Document[]>;
   aggregate(query: PipelineStage[]): Promise<Document[]>;
   updateOne(query: FilterQuery<Model>, data: UpdateQuery<Model>): Promise<Document>;

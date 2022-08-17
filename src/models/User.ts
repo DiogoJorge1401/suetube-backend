@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { compare } from 'bcrypt';
-import mongoose, { Document, Model, Schema } from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 import { HTTPError } from '../errors/HTTPError';
 
 export interface User {
@@ -11,6 +11,7 @@ export interface User {
   img?: string;
   subscribers: number;
   subscribedUsers: string[];
+  fromGoogle?: boolean;
 }
 
 export interface UserDocument extends User {
@@ -25,10 +26,11 @@ const schema = new Schema<UserDocument>(
   {
     username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
+    password: { type: String, default: '' },
     img: { type: String },
     subscribers: { type: Number, default: 0 },
     subscribedUsers: [{ type: Schema.Types.ObjectId, ref: 'User', default: [] }],
+    fromGoogle: { type: Boolean, default: false },
   },
   { timestamps: true },
 );

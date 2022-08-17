@@ -25,10 +25,10 @@ export class UserRepository implements IUserRepository {
     return await UserModel.find(query).sort(sort);
   }
 
-  async findOne(query: FilterQuery<User>, errorMsg: string) {
+  async findOne(query: FilterQuery<User>, errorMsg: string | null): Promise<UserDocument> {
     const user = await UserModel.findOne(query);
-    if (!user) throw new HTTPError(errorMsg, 400);
-    return user;
+    if (!user && errorMsg) throw new HTTPError(errorMsg, 400);
+    return user as any;
   }
 
   async aggregate(query: PipelineStage[]): Promise<UserDocument[]> {
