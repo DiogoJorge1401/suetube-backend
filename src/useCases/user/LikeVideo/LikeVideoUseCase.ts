@@ -4,14 +4,21 @@ export class LikeVideoUseCase {
   constructor(private videosRepository: IVideoRepository) {}
 
   async execute(userId: string, videoId: string) {
-    await this.videosRepository.findById(videoId);
+    const video = await this.videosRepository.findById(videoId);
 
-    await this.videosRepository.updateOne(
-      { _id: videoId },
-      {
-        $addToSet: { likes: userId },
-        $pull: { dislikes: userId },
-      },
-    );
+    const userAlreadyLiked = video.likes.includes(userId);
+
+    if (!userAlreadyLiked) {
+      await this.videosRepository.updateOne(
+        { _id: videoId },
+        {
+          $addToSet: { likes: userId },
+          $pull: { dislikes: userId },
+        },
+      );
+      return;
+    }
+
+    await this.videosRepository.updateOne({ _id: videoId }, { $pull: { likes: userId } });
   }
 }
