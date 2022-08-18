@@ -6,8 +6,15 @@ export class AddVideoController {
 
   handle = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const { title, description, imgURL, videoURL } = req.body;
-      const video = await this.addVideoUseCase.execute({ title, description, imgURL, videoURL, userId: req.userId });
+      const { title, description, imgURL, videoURL, tags } = req.body;
+      const video = await this.addVideoUseCase.execute({
+        title,
+        description,
+        imgURL,
+        videoURL,
+        userId: req.userId,
+        tags,
+      });
       res.status(201).json(video);
     } catch (error) {
       next(error);
